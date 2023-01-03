@@ -1,4 +1,4 @@
 
 
-FROM nispk/apache_container
+FROM ghcr.io/nispk/apache_container
 ADD . /var/www/html
