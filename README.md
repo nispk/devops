@@ -17,5 +17,7 @@ and assigning a key pair for remotely accessing the ec2 instance via SSH client 
 
 **Setup Virtual Private Cloud**
 
+An AWS Virtual Private Cloud 
+
 
 
