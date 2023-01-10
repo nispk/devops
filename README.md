@@ -17,7 +17,7 @@ and assigning a key pair for remotely accessing the ec2 instance via SSH client 
 
 **Setup Virtual Private Cloud**
 
-An AWS Virtual Private Cloud 
+An AWS Virtual Private Cloud is a private virtual network where users can host servers, data´centers or anyother computing system that can be remotely accessed. We can create an individual VPC or VPC along with other resources which will be helpful when we launch EC2 instances and remotely access them. In our case, we have created a VPC that also creates new subnets, route tables and gateways within that VPC. For our VPC we specify an IPv4 CIDR block of `10.0.0.0/16` which gives us 65,536 ip addresses
 
 
 
