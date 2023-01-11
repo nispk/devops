@@ -45,7 +45,35 @@ Security groups are necessary to filter the traffic that is allowed to reach and
  
 ### 2) Setup Jenkins
 
-Since we will use Jenkins to build our CI/CD pipeline, We install jenkins on 3 Ec2 instances named- Jenkins main server, staging server and production server. We will be using Jenkins main server instance to setup our pipeline, the staging server instance for testing and production server to see the final results of our deployment.
+Since we will use Jenkins to build our CI/CD pipeline, We install jenkins on 3 Ec2 instances named- Jenkins main server, staging server and production server. We will be using Jenkins main server instance to setup our pipeline, the staging server instance for testing and production server to see the final results of our deployment. In order to setup the jenkins server we follow below steps-
+  1. Check if all the softwares are updated and install java 
+      ```
+      sudo apt update
+      sudo apt install openjdk-11-jdk -y
+      ```
+  2. Add jenkins repository by first importing the GPG key. The GPG key verifies package integrity.
+      ```
+      curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | 
+      sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+      ```
+      Now we add the jenkins software repository to the source list and provide the authentication key.
+      ```
+      echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | 
+      sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+      ```
+  3. Install jenkins
+     ```
+     sudo apt update
+     sudo apt install jenkins -y
+     ```
+  4. Check if the jenkins is running if not activate.
+     ```
+     sudo systemctl status jenkins
+     sudo systemctl enable now --jenkins
+     ```
+  5. 
+      
+     
 
 ### 3) Setup Docker container
 
