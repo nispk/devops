@@ -45,6 +45,8 @@ Security groups are necessary to filter the traffic that is allowed to reach and
  
 ### 2) Setup Jenkins
 
+Since we will use Jenkins to build our CI/CD pipeline, We install jenkins on 3 Ec2 instances named- Jenkins main server, staging server and production server. We will be using Jenkins main server instance to setup our pipeline, the staging server instance for testing and production server to see the final results of our deployment.
+
 ### 3) Setup Docker container
 
 ### 4) Setup CI/CD Pipeline
