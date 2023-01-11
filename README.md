@@ -41,5 +41,7 @@ Security groups are necessary to filter the traffic that is allowed to reach and
   4. Allow `TCP protocol` traffic at `Port 43427` from Source `0.0.0.0/0`. This is for the inbound traffic from the slave nodes in the jenkins server to the EC2 instance.
   5. Allow `SSH protocol` traffic at `Port 22` from Source `0.0.0.0/0`. This is for the inbound traffic from our local computer to the EC2 instances.
  
- Apart from the above inbound traffic rules one traffic rule which allows all types of traffic from any source is added by default when a new VPC is created. We can filter the incoming traffic on the source level as well by specifying a single ip address for eg: local computer or server ip address instead of general source `0.0.0.0/0`. 
+ Apart from the above inbound traffic rules one traffic rule which allows all types of traffic from any source is added by default when a new VPC is created. We can filter the incoming traffic on the source level as well by specifying a single ip address for eg: local computer or server ip address instead of general source `0.0.0.0/0`. For the outbound rules we have set all type of traffic from all ports towards any destination, which allows the EC2 instances to communicate with any server, computer etc on internet.
+ 
+ 
   
