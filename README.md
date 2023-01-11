@@ -71,7 +71,8 @@ Since we will use Jenkins to build our CI/CD pipeline, We install jenkins on 3 E
      sudo systemctl status jenkins
      sudo systemctl enable now --jenkins
      ```
-  5. 
+  5. Launch the jenkins server with the ip address of the EC2 instance on port 8080. Once we launch the jenkins, we setup the user account, check if the GitHub plugin and the Credentials Plugin exist, if not install these plugins. For the built-in node configure the `No. of executers = 2` and `Ùsage = Use this node as much as possible`.
+  6. Create 2 more nodes and configure them. First node called as staging and second node called as production. Configure both the servers with `No. of executers = 1`, `Remote Root directory = /home/ubuntu/jenkins` , `Launch method = Launch agent by connecting it to the controller`, `Internal data directory = remoting`, `Availability = Keep this agent online as much as possible`.
       
      
 
