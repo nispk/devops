@@ -34,4 +34,7 @@ An EC2 instance requires a Key Pair of public key and private key for authentica
 
 **Setup Security Groups**
 
-Security groups are necessary to filter the traffic that is allowed to 
+Security groups are necessary to filter the traffic that is allowed to reach and leave the resources that it is assocciated with. In our case, we setup security groups for our EC2 instances so that we can control who is allowed to send the traffic to our EC2 instances and where it can go from the EC2 instances. We have set inbound rules as -
+  1. Allow `TCP protocol` traffic at `Port 8080` from Source `0.0.0.0/0` . This is for the inbound traffic from jenkins server(main node).
+  2. Allow `TCP protocol` traffic at `Port 82` from Source `0.0.0.0/0`. This is for the inbound traffic from the Docker container to the slave node in jenkins installed at EC2 instance.
+  3. Allow `TCP protocol`traffic at `Port 80` from Source `0.0.0.0/0`. This is for the inbound traffic from the Docker container to the slave node in jenkins installed at the other EC2 instance. 
