@@ -28,4 +28,10 @@ When a VPC is created (as in the previous step) automatically a main route table
 
 The internet gateways enables the resources in public subnet to connect to internet if it has a public ip address at the same time enabling remote access from the internet to the resources in the public subnet. For an outbound traffic sent from a public subnet, the internet gateways set the reply ip address as the public ip address of the subnet, so that when an inbound traffic is recieved from the internet the internet gateway translates the destination of the traffic to the private ip address of the resource in the public subnet. Hence for successfull communication between the internet and the AWS resources in a VPC, we create an internet gateway and attach it to the VPC. Finally we enter the internet gateway into the custom route table for `0.0.0.0/0` as the destination. If the VPC is created as per the previous step, then automatically the internet gateway is also created, attached to the VPC and added as an entry in the custom route table.
 
+**Setup Keypair**
 
+An EC2 instance requires a Key Pair of public key and private key for authentication while connecting to an SSH client or putty. We have created an rsa key pair of .pem type since we have an SSH client. For windows users putty can be used to connect to an EC2 instance which requires rsa key pair of .ppk type. While connecting to EC2 instance via putty or SSH client it is required to store the public key with correct permissions to form a successfull connection. 
+
+**Setup Security Groups**
+
+Security groups are necessary to filter the traffic that is allowed to 
