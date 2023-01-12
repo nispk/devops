@@ -77,7 +77,13 @@ Since we will use Jenkins to build our CI/CD pipeline, We install jenkins on 3 E
 
 ### 3) Setup Docker container
 
-In order to 
+Docker containers are very useful to run a web application making the process really simple by keeping all the dependencies required to build it in one place and easily deploy it on any OS, giving the application the highest abstraction. In our case, we have to deploy a simple website, hence we need a web server to process, store and manage the HTTPS requests from the client system (end user) and display it over the internet. For this purpose we have used a Docker image of Apache container. The Apache container acts as the base image on top of which we develop our docker container in which we run the website. The steps followed-
+  1. We first install docker in the EC2 instances where slave nodes are present - `sudo apt-get install docker.io` 
+  2. To build our Apache container that can be used as the base image image for our website container, we have created a github package that contains the Apache docker image.
+  
+  **Setup Github Package** 
+  
+  
 
 ### 4) Setup CI/CD Pipeline
 
