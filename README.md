@@ -79,7 +79,8 @@ Since we will use Jenkins to build our CI/CD pipeline, We install jenkins on 3 E
 
 Docker containers are very useful to run a web application making the process really simple by keeping all the dependencies required to build it in one place and easily deploy it on any OS, giving the application the highest abstraction. In our case, we have to deploy a simple website, hence we need a web server to process, store and manage the HTTPS requests from the client system (end user) and display it over the internet. For this purpose we have used a Docker image of Apache container. The Apache container acts as the base image on top of which we develop our docker container in which we run the website. The steps followed-
   1. We first install docker in the EC2 instances where slave nodes are present - `sudo apt-get install docker.io` 
-  2. To build our Apache container that can be used as the base image image for our website container, we have created a github package that contains the Apache docker image.
+  2. To build our Apache container that can be used as the base image for our website container, we have created a github package that contains the Apache docker image.
+  3. We build our final docker image on top of the Apache container with the help of Docker file that hosts our website.
   
   **Setup Github Package** 
   
@@ -89,7 +90,7 @@ Docker containers are very useful to run a web application making the process re
   2. the [Docker file](https://github.com/nispk/webapps/blob/main/Dockerfile) 
 
   Github Actions is an automation platform that can be used to build, test and push images to the Github Container repository similar to Docker hub. The yaml file is the github actions workflow file that contains the necessary information to build our github package such as the jobs, the OS on which the jobs are run, the steps for each job. 
-To build a docker image, we use docker github action commands that allow us to login to the Github container repository using the username and the personal access token of the Github repository and run the commands in the Docker file of the repository and build the image. The github actions workflow is triggered whenever there is a push on the 'main' branch. The name of the docker image is stored in the format of `ghcr.io/{Github username}/conatiner_name:version`
+To build a docker image, we use docker github action commands that allow us to login to the Github container repository using the username and the personal access token of the Github repository and run the commands in the Docker file of the repository and build the image. The github actions workflow is triggered whenever there is a push on the 'main' branch. The name of the docker image is stored in the format of `ghcr.io/{Github username}/conatiner_name:version`. Once the docker image is pushed to the repository we can pull it with the command `docker pull ghcr.io/{Github username}/conatiner_name:version` and run it in a container similar to docker.
 
 ### 4) Setup CI/CD Pipeline
 
