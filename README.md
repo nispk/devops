@@ -17,7 +17,7 @@ and assigning a key pair for remotely accessing the ec2 instance via SSH client 
 
 **Setup Virtual Private Cloud**
 
-An AWS Virtual Private Cloud is a private virtual network where users can host servers, data´centers or anyother computing system that can be remotely accessed. We can create an individual VPC or VPC along with other resources which will be helpful when we launch EC2 instances and remotely access them. In our case, we have created a VPC that also creates new subnets, route tables and gateways within that VPC. For our VPC we specify an IPv4 CIDR block of `10.0.0.0/16` which gives us 65,536 ip addresses, choose 2 availability zones for high availability in case one of the zones is down, create 2 public subnets and 0 NAT gateways since we will not be using private subnet for our EC2 instance.
+An AWS Virtual Private Cloud is a private virtual network where users can host servers, data´centers or any other computing system that can be remotely accessed. We can create an individual VPC or VPC along with other resources which will be helpful when we launch EC2 instances and remotely access them. In our case, we have created a VPC that also creates new subnets, route tables and gateways within that VPC. For our VPC we specify an IPv4 CIDR block of `10.0.0.0/16` which gives us 65,536 ip addresses, choose 2 availability zones for high availability in case one of the zones is down, create 2 public subnets and 0 NAT gateways since we will not be using private subnet for our EC2 instance.
 
 **Setp subnets, route tables and gateways**
 
@@ -94,4 +94,17 @@ To build a docker image, we use docker github action commands that allow us to l
 
 ### 4) Setup CI/CD Pipeline
 
+For our DevOps process we have 3 jobs in the CI/CD pipeline. Since our goal is to deploy a website on the AWS EC2 instance. We have created 3 jobs-
+1. Git job
+2. Test job
+3. Push to Prod job
+
+**Git job**
+This job is run on the staging server. This job 
+
+```
+sudo docker rm -f $(sudo docker ps -a -q)
+sudo docker build /home/ubuntu/jenkins/workspace/Git-job/ -t website
+sudo docker run -it -p 82:80 -d website
+```
   
