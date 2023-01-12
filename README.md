@@ -100,7 +100,7 @@ For our DevOps process we have 3 jobs in the CI/CD pipeline. Since our goal is t
 3. Push to Prod job
 
 **Git job**
-This job is run on the staging server. This job 
+This job is run on the staging server. This job is part of CI step in the pipeline where we integrate the code into the system. Here we are cloning the files from the Github repository to the staging server. (**Note**: Since the github repository is a public repository we do not need to store credentials in jenkins, else we have to store the username and personal access token of the repository in the credentials manager of jenkins and use these credentials in the source code management, when we add the repository) In order for the pipeline to be triggered everytime there is any change in the source code, we add a webhook to our Github repository linking the jenkins server to the repository. 
 
 ```
 sudo docker rm -f $(sudo docker ps -a -q)
