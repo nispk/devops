@@ -84,8 +84,10 @@ Docker containers are very useful to run a web application making the process re
   **Setup Github Package** 
   
   The Github package is stored in Github Container repository, that can be used as docker container. To build a github package, we need 2 input files, 
+  
   1. the [YAML file](https://github.com/nispk/webapps/blob/main/.github/workflows/publish.yml) 
   2. the [Docker file](https://github.com/nispk/webapps/blob/main/Dockerfile) 
+
   Github Actions is an automation platform that can be used to build, test and push images to the Github Container repository similar to Docker hub. The yaml file is the github actions workflow file that contains the necessary information to build our github package such as the jobs, the OS on which the jobs are run, the steps for each job. 
 To build a docker image, we use docker github action commands that allow us to login to the Github container repository using the username and the personal access token of the Github repository and run the commands in the Docker file of the repository and build the image. The github actions workflow is triggered whenever there is a push on the 'main' branch. The name of the docker image is stored in the format of `ghcr.io/{Github username}/conatiner_name:version`
 
