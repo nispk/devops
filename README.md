@@ -73,7 +73,7 @@ Since we will use Jenkins to build our CI/CD pipeline, We install jenkins on 3 E
      ```
   5. Launch the jenkins server with the ip address of the EC2 instance on port 8080. Once we launch the jenkins, we setup the user account, check if the GitHub plugin and the Credentials Plugin exist, if not install these plugins. For the built-in node(main node) configure the `No. of executers = 2` and `Ùsage = Use this node as much as possible`. Configure Global security with `Security Realm = Jenkins own user database`, `Authorization = Logged-in users can do anything`, `TCP port for inbound agents = Random`, `API Token = Enable API token usage statistics`, `SSH server = Disable`. Save the settings.
   6. Create 2 more nodes and configure them. First node called as staging and second node called as production. Configure both the servers with `No. of executers = 1`, `Remote Root directory = /home/ubuntu/jenkins` , `Launch method = Launch agent by connecting it to the controller`, `Internal data directory = remoting`, `Availability = Keep this agent online as much as possible`. Save the settings.
-  7. To connect both the slave nodes to the EC2 instances, we run the commands for the agents on each EC2 instance command line. 
+  7. To connect both the slave nodes to the EC2 instances, we run the commands for the agents in each EC2 instance shell. 
 
 ### 3) Setup Docker container
 
