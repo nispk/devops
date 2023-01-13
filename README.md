@@ -99,13 +99,15 @@ For our DevOps process we have 3 jobs in the CI/CD pipeline. Since our goal is t
 2. Test job
 3. Push to Prod job
 
-**Git job**
+**Git job:**
+
 This job is run on the staging server. This job is part of CI step in the pipeline where we integrate the code into the system. Here we are cloning the files from the Github repository to the staging server. (**Note**: Since the github repository is a public repository we do not need to store credentials in jenkins, else we have to store the username and personal access token of the repository in the credentials manager of jenkins and use these credentials in the source code management, when we add the repository) 
 
 In order for the pipeline to be triggered everytime there is any change in the source code (push to the repository), we add a webhook to our Github repository linking the jenkins server to the repository. Similarly in the jenkins server, we configure our job to be built if there is a trigger from GitHub hook trigger for GITScm polling. We add the next job to the pipeline in the Post-build actions of this job, which basically triggers the **Test job** once the Git job is run successfully.
 
-**Test job**
-This job is also run on the staging server. We want to test run our code that was cloned in the previous step on the staging server instance before deploying it on the production server. This job will trigger the docker container to run with the below commands. Hence deploying the website on the staging server instance.
+**Test job:**
+
+This job is also run on the staging server. We want to test run our code that was cloned in the previous step on the staging server instance before deploying it on the production server. This job will trigger the docker container to run with the below commands in shell. Hence deploying the website on the staging server instance. We can check if the website is deployed successfully in the browser through the `https://{ip address of the EC2 instance}:82`. 
 
 ```
 sudo docker rm -f $(sudo docker ps -a -q)
@@ -114,5 +116,12 @@ sudo docker run -it -p 82:80 -d website
 ```
 If this job runs succesfully, the next job in the pipeline which is **Push to Prod job** is triggered.
 
-**Push to Prod job**
+**Push to Prod job:**
 
+This job is run on the production server. We clone the github repository on the production server and later run the below commands in the shell. We can check if the website is deployed successfully in the browser through the `https://{ip address of the EC2 instance}:80`. 
+
+```
+sudo docker rm -f $(sudo docker ps -a -q)
+sudo docker build /home/ubuntu/jenkins/workspace/push-prod/ -t website
+sudo docker run -it -p 80:80 -d website
+```
