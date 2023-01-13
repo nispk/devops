@@ -30,7 +30,7 @@ The internet gateways enables the resources in public subnet to connect to inter
 
 **Setup Keypair**
 
-An EC2 instance requires a Key Pair of public key and private key for authentication while connecting to an SSH client or putty. We have created an rsa key pair of .pem type since we have an SSH client. For windows users putty can be used to connect to an EC2 instance which requires rsa key pair of .ppk type. While connecting to EC2 instance via putty or SSH client it is required to store the public key with correct permissions to form a successfull connection. 
+An EC2 instance requires a Key Pair of public key and private key for authentication while connecting to an SSH client or putty. We have created an rsa key pair of .pem type since we use an SSH client. For windows users putty can be used to connect to an EC2 instance which requires rsa key pair of .ppk type. While connecting to EC2 instance via putty or SSH client it is required to store the public key with correct permissions to form a successfull connection. 
 
 **Setup Security Groups**
 
