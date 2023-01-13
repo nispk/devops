@@ -125,3 +125,7 @@ sudo docker rm -f $(sudo docker ps -a -q)
 sudo docker build /home/ubuntu/jenkins/workspace/push-prod/ -t website
 sudo docker run -it -p 80:80 -d website
 ```
+
+## Conclusion
+
+This completes the deployement of our CI/CD pipeline. We see how the Docker,Jenkins and Github play a major role in completing the pipeline and also the AWS EC2 instances provide us with the necessary resources to see our results. 
