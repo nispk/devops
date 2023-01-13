@@ -128,4 +128,4 @@ sudo docker run -it -p 80:80 -d website
 
 ## Conclusion
 
-This completes the deployement of our CI/CD pipeline. We see how the Docker,Jenkins and Github play a major role in completing the pipeline and also the AWS EC2 instances provide us with the necessary resources to see our results. 
+This completes the deployement of our CI/CD pipeline. We see how the Docker,Jenkins and Github play a major role in completing the pipeline and also the AWS EC2 instances provide us with the necessary resources to see our results. In conclusion, we can make any changes to our website by just modifying the code in our `index.html` file and pushing it to the repository, which will trigger our CI/CD pipeline and we can see the results by going to the website. Also, since we are using a docker container to wrap our source code we can scale our website and turn it into a web application consisting of front end and back end, just by pushing the new code to the reposirtory. Hence simplifying our app development process through DevOps.
