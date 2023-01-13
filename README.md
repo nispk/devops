@@ -66,7 +66,7 @@ Since we will use Jenkins to build our CI/CD pipeline, We install jenkins on 3 E
      sudo apt update
      sudo apt install jenkins -y
      ```
-  4. Check if the jenkins is running if not activate on one instance which acts as the main node in our automation.
+  4. Check if jenkins is running if not activate on one instance which acts as the main node in our automation.
      ```
      sudo systemctl status jenkins
      sudo systemctl enable now --jenkins
